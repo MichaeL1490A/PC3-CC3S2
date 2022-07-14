@@ -13,3 +13,74 @@ y checkSeniority. Lo mismo se repite para el siguiente empleado Chalito.
 
 ### Pregunta 2
 
+
+
+### Pregunta 3
+
+Client.java
+~~~
+public class Cliente {
+    public static void main(String[] args) {
+        System.out.println("Demostracion de SRP");
+
+        Empleado jessica = new Empleado("Jessica", "Abejita", 7.5);
+        showEmpDetail(jessica);
+
+        System.out.println("\n*******\n");
+
+        Empleado chalo = new Empleado ("Chalito", "Smart", 3.2);
+        showEmpDetail(chalo);
+    }
+
+    private static void showEmpDetail(Empleado emp) {
+
+        emp.displayEmpDetail();
+
+        String empId = new GeneradorIDEmpleado().generateEmpId(emp.firstName);
+        System.out.println("El ID de empleado es" + empId);
+
+        String rank = new SeniorityChecker().checkSeniority(emp.experienceInYears);
+        System.out.println("Este empleado es un" + " empleado " + rank);
+    }
+}
+~~~
+
+Empleado.java
+
+~~~
+public class Empleado {
+    public String firstName, lastName;
+    public double experienceInYears;
+    public Empleado(String firstName, String lastName, double experience) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.experienceInYears = experience;
+    }
+    public void displayEmpDetail(){
+        System.out.println("Nombre del empleado: "+lastName+","+firstName);
+        System.out.println("Este empleado tiene "+ experienceInYears+" años de experiencia.");
+    }
+}
+~~~
+
+SeniorityChecker.java
+
+~~~
+public class SeniorityChecker {
+    public double experienceInYears;
+    public String checkSeniority(double experienceInYears){
+        return experienceInYears > 5 ?"senior":"junior";
+    }
+}
+~~~
+
+GeneradorIDEmpleado.java
+
+~~~
+public class SeniorityChecker {
+    public double experienceInYears;
+    public String checkSeniority(double experienceInYears){
+        return experienceInYears > 5 ?"senior":"junior";
+    }
+}
+~~~

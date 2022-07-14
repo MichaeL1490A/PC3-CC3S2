@@ -1,5 +1,8 @@
-package Solid.SRP;
+//package Solid.SRP;
 
 public class SeniorityChecker {
-    // completa
+    public double experienceInYears;
+    public String checkSeniority(double experienceInYears){
+        return experienceInYears > 5 ?"senior":"junior";
+    }
 }

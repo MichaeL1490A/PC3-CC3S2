@@ -21,5 +21,4 @@ public class Empleado {
         empId = empFirstName.substring(0,1)+random;
         return empId;
     }
-
 }
