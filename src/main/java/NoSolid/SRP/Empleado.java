@@ -1,4 +1,4 @@
-package NoSolid.SRP;
+//package NoSolid.SRP;
 import java.util.Random;
 public class Empleado {
     public String firstName, lastName, empId;
