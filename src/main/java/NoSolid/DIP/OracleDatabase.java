@@ -1,4 +1,4 @@
-package NoSolid.DIP;
+//package NoSolid.DIP;
 
 public class OracleDatabase {
     public void saveEmpIdInDatabase(String empId) {
