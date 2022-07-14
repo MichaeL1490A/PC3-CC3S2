@@ -11,7 +11,6 @@ public class Cliente {
 
         Empleado chalo  = new Empleado("Chalito", "Smart", 3.2);
         showEmpDetail(chalo );
-
     }
 
     private static void showEmpDetail(Empleado emp) {
