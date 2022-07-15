@@ -139,3 +139,8 @@ recibieron el certificado.
 
 ### Pregunta 7
 
+El diseño del código actual es problemático para la extensión del mismo, podemos
+observar que al querer extender el método evaluateDistinction de DistinctionDecider
+tendremos que constantemente aumentar la cantidad de ifs dentro del mismo, así
+teniendo un código para la función excesivamente grande. Esto problema es 
+producto de la baja escabilidad que posee nuestro clase DistinctionDecider.
