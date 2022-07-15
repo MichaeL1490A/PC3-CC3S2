@@ -1,4 +1,4 @@
-package NoSolid.OCP;
+//package NoSolid.OCP;
 
 public class Estudiante {
     String name;

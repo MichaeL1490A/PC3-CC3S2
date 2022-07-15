@@ -123,3 +123,16 @@ distintas a la misma clase. displayResult corresponde a otorgar la información 
 estudiante mientras que evaluateDistinction se dedica a evaluar si es elegible para un
 certificado en base a su desempeño, por lo que estos métodos son totalmente
 distintos y deberían declararse en 2 clases distintas.
+
+### Pregunta 6
+
+![img.png](images/img3.png)
+
+Se ejecuta el metodo main de la clase Cliente en donde se declara
+una lista de objetos de tipo Estudiante y se inicializa con el metodo
+privado enrollStudents de la clase Cliente. Luego se itera entre todos
+los estudiantes y se imprime sus datos con detalle. Al final se crea
+un objeto de tipo DistinctionDecider, el cual evalua si un estudiante
+recibe una distincion, se itera en la lista y para cada objeto de la lista
+se evalua si el Estudiante recibe una distincion y se imprimen los que
+recibieron el certificado.
