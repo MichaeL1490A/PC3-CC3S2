@@ -136,3 +136,6 @@ un objeto de tipo DistinctionDecider, el cual evalua si un estudiante
 recibe una distincion, se itera en la lista y para cada objeto de la lista
 se evalua si el Estudiante recibe una distincion y se imprimen los que
 recibieron el certificado.
+
+### Pregunta 7
+

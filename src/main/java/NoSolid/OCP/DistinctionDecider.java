@@ -15,7 +15,7 @@ public class DistinctionDecider {
 
         if (arts.contains(estudiante.department)) {
             if (estudiante.score > 70) {
-                System.out.println(estudiante.regNumber+" ha recibido una distincion en artes.");
+                System.out.println(estudiante.regNumber + " ha recibido una distincion en artes.");
             }
         }
     }
