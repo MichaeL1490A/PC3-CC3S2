@@ -92,3 +92,19 @@ public class SeniorityChecker {
     }
 }
 ~~~
+
+### Pregunta 4
+
+![img.png](images/img2.png)
+
+En el metodo main de Cliente crea los objetos jessica y chalo los cuales contienen información de
+los empleados, luego para cada objeto llama el metodo privado de Cliente showEmpDetails en el que imprime
+los datos de cada empleado con el metodo del objeto Empleado displayEmpDetail.
+
+Después creamos una variable que almacenara el ID del empleado y la inicializaremos con el metodo
+generateEmpId de la clase GeneradorIDEmpleado para esto le damos como parametro el valor firstName
+del objeto Empleado e imprimimos la variable empId
+
+Para finalizar creamos una variable rank que almacenara el nivel de estudio del Empleado y los inicializaremos
+con el metodo checkSeniority de la clase GeneradorIDEmpleado para esto le pasamos como parametro la experiencia
+en años del empleado (experienceInYears) e imprimimos la variable rank.
