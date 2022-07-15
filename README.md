@@ -119,4 +119,7 @@ en años del empleado (experienceInYears) e imprimimos la variable rank.
 
 Como hemos revisado en la anterior sección, no es correcto proceder de esta forma ya que
 estaríamos violando el principio de responsabilidad única al asignarle 2 tareas totalmente
-distintas a la misma clase.
+distintas a la misma clase. displayResult corresponde a otorgar la información básica del
+estudiante mientras que evaluateDistinction se dedica a evaluar si es elegible para un
+certificado en base a su desempeño, por lo que estos métodos son totalmente
+distintos y deberían declararse en 2 clases distintas.
