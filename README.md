@@ -9,9 +9,17 @@ se crea un objeto Empleado (Jessica) y se utiliza el método privado de Cliente
 (showEmpDetail) el cual recibe como parámetro al objeto Empleado (Jessica).
 Este método showEmpDetail imprime una serie de datos sobre el objeto
 empleado utilizando sus métodos para esto, como displayEmpDetail, generateEmpId.
-y checkSeniority. Lo mismo se repite para el siguiente empleado Chalito.
+y checkSeniority. Sin embargo, estos 2 últimos métodos generateEmpId y 
+checkSeniority se encuentran en la clase Empleado. Esta clase Empleado vemos
+entonces que cumple con más de una función, ya que además de otorgar la 
+información básica del empleado, a través de estos 2 métodos también se encarga
+de generar los IDs y de catalogar a los empleados en base a la experiencia,
+teniendo más de una responsabilidad como clase.
+
+Lo mismo se repite para el siguiente empleado Chalito.
 
 ### Pregunta 2
+
 
 
 
