@@ -20,8 +20,14 @@ Lo mismo se repite para el siguiente empleado Chalito.
 
 ### Pregunta 2
 
-
-
+El problema de diseño se centra en la clase Empleado, ya que esta como hemos
+especificado en la pregunta anterior tiene más de una responsabilidad. No solo
+se encarga de almacenar y devolver la información básica del empleado, sino
+además también tiene la responsabilidad de generar las IDs aleatorias con el
+método generateEmpID y de especificar el nivel de un empleado en base a su
+experiencia con el método checkSeniority. La razón más probable es que juntar
+todos los métodos en una sola clase aparenta dar más cohesión al código, sin
+tomar en cuenta que el código puede tener cambios.
 
 ### Pregunta 3
 
