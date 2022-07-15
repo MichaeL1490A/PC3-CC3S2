@@ -114,3 +114,9 @@ del objeto Empleado e imprimimos la variable empId
 Para finalizar creamos una variable rank que almacenara el nivel de estudio del Empleado y los inicializaremos
 con el metodo checkSeniority de la clase GeneradorIDEmpleado para esto le pasamos como parametro la experiencia
 en años del empleado (experienceInYears) e imprimimos la variable rank.
+
+### Pregunta 5
+
+Como hemos revisado en la anterior sección, no es correcto proceder de esta forma ya que
+estaríamos violando el principio de responsabilidad única al asignarle 2 tareas totalmente
+distintas a la misma clase.
