@@ -23,21 +23,20 @@ y _checkSeniority_.
 Lo mismo se repite para el siguiente empleado Chalito.
 
 ### Pregunta 2
-Esta clase Empleado vemos entonces que cumple con más de una función, ya que además de otorgar la
-información básica del empleado, a través de estos 2 métodos también se encarga
-de generar los IDs y de catalogar a los empleados con base en la experiencia,
-teniendo más de una responsabilidad como clase.
+El problema de diseño se centra en la clase _Empleado_, ya que 
+si vemos el código de esta clase notamos que tiene más de una 
+responsabilidad, además de otorgar la información básica del empleado 
+(_displayEmpDetail_), también se encarga de generar los IDs (_generateEmpId_)
+de manera aleatoria de cada empleado y de categorizar a los empleados 
+(_checkSeniority_) con base en los años de experiencia  del empleado. 
 
-
-
-El problema de diseño se centra en la clase Empleado, ya que esta como hemos
-especificado en la pregunta anterior tiene más de una responsabilidad. No solo
-se encarga de almacenar y devolver la información básica del empleado, sino
-además también tiene la responsabilidad de generar las IDs aleatorias con el
-método generateEmpID y de especificar el nivel de un empleado con base en su
-experiencia con el método checkSeniority. La razón más probable es que juntar
-todos los métodos en una sola clase aparenta dar más cohesión al código, sin
-tomar en cuenta que el código puede tener cambios.
+Esto hace que tenga más de una responsabilidad como clase y la razón 
+es que se ha juntado todos los métodos en una sola clase, lo que
+aparenta dar más cohesión al código, pero no toma en cuenta que 
+el código puede tener cambios, como el de redefinir la manera en que
+se obtiene los ID's de los empleados en _generateEmpId_ ya que la manera
+como está definido se pueden dar casos que se tengan empleados con el 
+mismo ID, algo que no debería ocurrir.
 
 ### Pregunta 3
 
