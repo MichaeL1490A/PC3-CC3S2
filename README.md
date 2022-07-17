@@ -161,14 +161,25 @@ distintos (tienen baja cohesión) y por lo tanto deberían declararse en 2 clase
 
 ![img.png](images/img3.png)
 
-Se ejecuta el método main de la clase Cliente en donde se declara
-una lista de objetos de tipo Estudiante y se inicializa con el método
-privado enrollStudents de la clase Cliente. Luego se itera entre todos
-los estudiantes y se imprime sus datos con detalle. Al final se crea
-un objeto de tipo DistinctionDecider, el cual evalúa si un estudiante
-recibe una distinción, se itera en la lista y para cada objeto de la lista
-se evalúa si el Estudiante recibe una distinción y se imprimen los que
-recibieron el certificado.
+Figura 3 : Salida del método main de la clase Cliente (src/main/java/NoSolid/OCP/Cliente.java) 
+
+En la Figura 3 tenemos la salida al ejecutar el método main de la clase Cliente.
+Si comparamos el código de este método con la salida al ejecutarlo vemos que en la
+primera línea se tiene una instrucción para imprimir 'Demostración sin OCP', luego 
+se declara una lista de objetos de tipo _Estudiante_ y se inicializa con el método
+privado _enrollStudents_ de la clase _Cliente_ (este método retorna una lista de objetos de la 
+clase _Estudiante_). Luego se tiene una instrucción para imprimir 'Resultados' y 
+posteriormente se crea un bucle _for_ que itera entre los elementos de la lista de
+estudiantes (_enrolledStudents_), dentro de este bucle _for_ se llama al método _toString_ 
+de la clase _Estudiante_ de manera implícita (un objeto _Estudiante_ dentro de una instrucción 
+de impresión), este método imprime los atributos de los estudiantes de manera formateada.
+En las últimas líneas del método main se tiene una instrucción de impresión para
+'Distinciones:' y se crea el objeto _distinctionDecider_ de la clase _DistinctionDecider_, 
+posteriormente se crea otro bucle _for_ que itera sobre la lista de estudiantes (_enrolledStudents_)
+en este caso dentro del bucle _for_ se usa el objeto _distinctionDecider_ para llamar al método 
+_evaluateDistinction_, este método pide como parámetro un objeto _Estudiante_, que evalua 
+con la ayuda de los atributos del estudiante si el estudiante recibe una distinción, y solo se imprimen 
+los que recibieron el certificado.
 
 ### Pregunta 7
 
