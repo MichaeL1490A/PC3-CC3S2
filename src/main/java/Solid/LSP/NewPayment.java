@@ -1,7 +1,6 @@
-package Solid.LSP;
+//package Solid.LSP;
 
-/*
+
 interface NewPayment {
-   ...completa
+   void newPayment();
 }
-*/

@@ -335,3 +335,6 @@ por lo que habrá que transformar esta interfaz si queremos que se pueda hacer u
 de esta clase GuestUser sin generar ninguna excepción.
 
 ### Pregunta 15
+
+
+### Pregunta 16
