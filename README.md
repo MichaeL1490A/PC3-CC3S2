@@ -142,5 +142,103 @@ recibieron el certificado.
 El diseño del código actual es problemático para la extensión del mismo, podemos
 observar que al querer extender el método evaluateDistinction de DistinctionDecider
 tendremos que constantemente aumentar la cantidad de ifs dentro del mismo, así
-teniendo un código para la función excesivamente grande. Esto problema es 
+teniendo un código demasiado grande sin necesidad de serlo. Este problema es 
 producto de la baja escabilidad que posee nuestro clase DistinctionDecider.
+
+Declarando la clase Estudiante.java como abstracta obtenemos:
+
+~~~
+abstract class Estudiante {
+    String name;
+    String regNumber;
+    double score;
+    String department;
+
+    public Estudiante(String name, String regNumber, double score) {
+        this.name = name;
+        this.regNumber = regNumber;
+        this.score = score;
+    }
+
+    public String toString() {
+        return ("Nombre: " + name + "\nNumero Reg: " + regNumber + "\nDept:" + department + "\nMarks:"
+                + score + "\n");
+    }
+
+}
+~~~
+
+ArteEstudiante.java:
+
+~~~
+public class ArteEstudiante extends Estudiante{
+    public ArteEstudiante(String name, String regNumber, double score, String dept) {
+        super(name,regNumber,score);
+        this.department = dept;
+    }
+}
+~~~
+
+CienciaEstudiante.java:
+
+~~~
+public class CienciaEstudiante extends Estudiante{
+    public CienciaEstudiante(String name, String regNumber, double score,String dept) {
+        super(name,regNumber,score);
+        this.department = dept;
+    }
+}
+~~~
+
+### Pregunta 8
+
+Declarando como interface DistinctionDecider.java:
+
+~~~
+interface DistinctionDecider{
+    void evaluateDistinction(Estudiante estudiante);
+}
+~~~
+
+### Pregunta 9
+
+ArtsDistinctionDecider.java
+
+~~~
+public class ArtsDistinctionDecider implements DistinctionDecider{
+    public void evaluateDistinction(Estudiante estudiante){
+        if(estudiante.score > 70){
+            System.out.println(estudiante.regNumber + " ha recibido una distincion en artes.");
+        }
+    }
+}
+~~~
+
+ScienceDistinctionDecider.java
+
+~~~
+public class ScienceDistinctionDecider implements DistinctionDecider {
+    public void evaluateDistinction(Estudiante estudiante){
+        if(estudiante.score > 80){
+            System.out.println(estudiante.regNumber + " ha recibido una distincion en ciencias.");
+        }
+    }
+}
+~~~
+
+### Pregunta 10
+
+![img.png](images/img4.png)
+
+Se ejecuta el metodo main en la clase Cliente en donde se crean dos listas, una
+de tipo CienciasEstudiantes que alberga a los estudiantes del área de ciencias,
+y otra de tipo ArtesEstudiantes que albega a los estudiantes del área de artes.
+Estas 2 listas se inicializan con los métodos privados enrollScienceStudents y
+enrollArtsStudents de la clase Cliente. En la siguente parte, se itera cada lista
+respectivamente para poder imprimir sus datos de cada uno. Finalmente, en la
+última parte se crean dos objetos, uno de tipo scienceDistinctionDecider para
+los estudiantes de ciencias y el otro de tipo artsDistinctionDecider para los
+estudiantes de arte, estos dos evalúan para cada tipo de estudiante si recibieron
+una distinción por sus notas. Procedemos a iterar las listas para evaluar si se
+han recibido afirmativamente o no las distinciones, imprimiendo los que sí
+lograron recibirlas, culminando la ejecución del código.
