@@ -4,21 +4,31 @@
 ### Pregunta 1
 ![img.png](images/img.png)
 
-Se ejecuta el método main el cual imprime "Demostración sin SRP", luego
-se crea un objeto Empleado (Jessica) y se utiliza el método privado de Cliente
-(showEmpDetail) el cual recibe como parámetro al objeto Empleado (Jessica).
-Este método showEmpDetail imprime una serie de datos sobre el objeto
-empleado usando sus métodos para esto, como displayEmpDetail, generateEmpId.
-y checkSeniority. Sin embargo, estos 2 últimos métodos generateEmpId y 
-checkSeniority se encuentran en la clase Empleado. Esta clase Empleado vemos
-entonces que cumple con más de una función, ya que además de otorgar la 
-información básica del empleado, a través de estos 2 métodos también se encarga
-de generar los IDs y de catalogar a los empleados con base en la experiencia,
-teniendo más de una responsabilidad como clase.
+Figura 1 :  Salida de la ejecución del método main de la clase Cliente
+
+La Figura 1 muestra la ejecución del método main de la clase Cliente 
+(src/main/java/NoSolid/SRP/Cliente.java). En donde primero se imprime 
+"Demostración sin SRP" y luego se muestra el nombre, los años de experiencia,
+el ID y la categoría de dos empleados Jessica y Chalito. 
+
+Si comparamos estos resultados con el código del método main de la clase Cliente
+notamos que primero se tiene una instrucción de impresión para "Demostración sin SRP",
+luego se crea un objeto Empleado (Jessica) enviando sus atributos en el constructor de la clase
+Empleado y posteriormente se llama al método privado de Cliente (_showEmpDetail_) 
+que recibe como parámetro un objeto Empleado (Jessica).
+Este método imprime los detalles (nombre, años de experiencia, ID, categoría) del objeto 
+empleado brindado (Jessica) usando los métodos de la clase Empleado _displayEmpDetail_, _generateEmpId_
+y _checkSeniority_.
 
 Lo mismo se repite para el siguiente empleado Chalito.
 
 ### Pregunta 2
+Esta clase Empleado vemos entonces que cumple con más de una función, ya que además de otorgar la
+información básica del empleado, a través de estos 2 métodos también se encarga
+de generar los IDs y de catalogar a los empleados con base en la experiencia,
+teniendo más de una responsabilidad como clase.
+
+
 
 El problema de diseño se centra en la clase Empleado, ya que esta como hemos
 especificado en la pregunta anterior tiene más de una responsabilidad. No solo
