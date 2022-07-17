@@ -112,11 +112,39 @@ public class GeneradorIDEmpleado {
 
 ![img.png](images/img2.png)
 
-En el método main de Cliente crea los objetos jessica y chalo los cuales contienen información de los empleados, luego para cada objeto llama el método privado de Cliente showEmpDetails en el que imprime los datos de cada empleado con el método del objeto Empleado displayEmpDetail.
+Figura 2: Salida de la ejecución del método main de la clase Cliente siguiendo SRP.
 
-Después creamos una variable que almacenara el ID del empleado y la inicializaremos con el método generateEmpId de la clase GeneradorIDEmpleado para esto le damos como parámetro el valor firstName del objeto Empleado e imprimimos la variable empId
+En la Figura 2 tenemos una salida similar a la que se obtuvo anteriormente
+en la Figura 1 al ejecutar el método main de la clase Cliente (src/main/java/Solid/SRP/Cliente.java)
+, pero en este caso se sigue el SRP y es por eso que en la primera línea 
+vemos ahora la salida "Demostracion de SRP". El código resultante usando 
+el SRP se muestra en la pregunta 3. De los cambios realizados tenemos que:
 
-Para finalizar creamos una variable rank que almacenara el nivel de estudio del Empleado y los inicializaremos con el método checkSeniority de la clase GeneradorIDEmpleado para esto le pasamos como parámetro la experiencia en años del empleado (experienceInYears) e imprimimos la variable rank.
+En la clase _Empleado_ nos quedamos con los atributos: nombre, apellido y años de
+experiencia los cuales son definidos con el constructor de la clase, y el método
+_displayEmpDetail_ que nos muestra los atributos del empleado de una manera formateada.
+Adicional a ello creamos la clase _SeniorityChecker.java_ que contiene solo el método
+_checkSeniority_ que pide
+como parámetro un valor tipo _double_ que hace referencia a los años de experiencia
+del empleado para categorizarlo como junior o senior y devolver la categoría
+de empleado. También creamos la clase _GeneradorIDEmpleado.java_ que solo tiene el
+método _generateEmpId_ que pide como parámetro una cadena que hace referencia
+al primer nombre del empleado y devuelve el ID del empleado.
+
+En el método main de Cliente se crea los objetos jessica y chalo de la clase
+_Empleado_, usando el constructor para definir los atributos de los empleados,
+luego se llama 2 veces al método privado de Cliente _showEmpDetails_ que tiene como
+parámetro a un objeto empleado. En este método se imprime los datos (atributos)
+de cada empleado, para ello llama al método _displayEmpDetail_ de la clase _Empleado_
+para mostrar el nombre completo y los años de experiencia del empleado, 
+después creamos la variable _empId_ que almacenará el ID del empleado y la inicializaremos con el método
+_generateEmpId_ de la clase _GeneradorIDEmpleado_ para esto le damos como parámetro el atributo _firstName_
+del objeto Empleado e imprimimos la variable _empId_. Finalmente creamos una variable 
+_rank_ que almacena la categoría del empleado y lo inicializaremos
+con el método _checkSeniority_ de la clase _GeneradorIDEmpleado_ para esto le pasamos 
+como parámetro los años de experiencia del empleado (_experienceInYears_) e 
+imprimimos la variable _rank_ devuelta por el método.
+
 
 ### Pregunta 5
 
