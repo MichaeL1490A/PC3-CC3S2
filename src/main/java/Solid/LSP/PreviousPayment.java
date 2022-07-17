@@ -1,7 +1,5 @@
-package Solid.LSP;
+//package Solid.LSP;
 
-/*
 interface PreviousPayment {
-  ...completa
+  void previousPaymentInfo();
 }
-*/

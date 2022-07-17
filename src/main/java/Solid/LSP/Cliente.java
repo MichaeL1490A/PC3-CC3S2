@@ -1,5 +1,5 @@
-package Solid.LSP;
-/*
+//package Solid.LSP;
+
 public class Cliente {
     public static void main(String[] args) {
 
@@ -26,8 +26,5 @@ public class Cliente {
 
         // Procesa todas las solicitudes de pago nuevos de todos los usuarios
         helper.processNewPayments();
-
-
     }
 }
-*/

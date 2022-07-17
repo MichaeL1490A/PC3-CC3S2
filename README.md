@@ -348,3 +348,90 @@ por lo que habrá que transformar esta interfaz si queremos que se pueda hacer u
 de esta clase GuestUser sin generar ninguna excepción.
 
 ### Pregunta 15
+
+
+### Pregunta 16
+
+NewPayment.java
+~~~
+interface NewPayment {
+   void newPayment();
+}
+~~~
+
+PreviousPayment.java
+~~~
+interface PreviousPayment {
+  void previousPaymentInfo();
+}
+~~~
+
+RegisteredUserPayment.java
+~~~
+public class RegisteredUserPayment implements NewPayment,PreviousPayment {
+    String name;
+    public RegisteredUserPayment(String userName){
+        this.name = userName;
+    }
+    @Override
+    public void previousPaymentInfo(){
+        System.out.println("Recuperando de "+ name+ ", ultimos detalles de pagos.");
+    }
+    @Override
+    public void newPayment(){
+        System.out.println("Procesando de "+name+", la actual solicitud de pagos .");
+    }
+}
+~~~
+
+GuestUserPayment.java
+~~~
+public class GuestUserPayment implements NewPayment{
+    String name;
+    public GuestUserPayment(){
+        this.name = "guest";
+    }
+    @Override
+    public void newPayment(){
+        System.out.println("Procesando de "+name+ "pago actual request.");
+    }
+}
+~~~
+
+### Pregunta 17
+
+Los cambios claves son separar la interfaz Payment en 2 NewPayment y PreviousPayment para que
+la clase concreta GuestUserPayment solo tenga que implementar a NewPayment y no se vea obligado
+a utilizar el método de la interfaz PreviousPayment, ya que no es parte de su naturaleza.
+
+### Pregunta 18
+
+Refactorizando la clase PaymentHelper
+
+~~~
+import java.util.ArrayList;
+import java.util.List;
+
+public class PaymentHelper {
+    List<PreviousPayment> previouspayments = new ArrayList<>();
+    List<NewPayment> newpayments = new ArrayList<>();
+    public void addPreviousPayment(PreviousPayment user){
+        previouspayments.add(user);
+    }
+    public void addNewPayment(NewPayment user){
+        newpayments.add(user);
+    }
+    public void showPreviousPayments(){
+        for(PreviousPayment previouspayment: previouspayments){
+            previouspayment.previousPaymentInfo();
+            System.out.println("------");
+        }
+    }
+    public void processNewPayments(){
+        for(NewPayment newpayment: newpayments){
+            newpayment.newPayment();
+            System.out.println("------");
+        }
+    }
+}
+~~~
