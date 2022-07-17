@@ -183,14 +183,15 @@ los que recibieron el certificado.
 
 ### Pregunta 7
 
-El diseño del código actual es problemático para la extensión del mismo, podemos
-observar que al querer extender el método evaluateDistinction de DistinctionDecider
-tendremos que constantemente aumentar la cantidad de ifs dentro del mismo, así
+El diseño del código actual es problemático para la extensión de la clase _Estudiante_,
+porque si queremos crear un nuevo departamento como ingeniería, el método _evaluateDistinction_
+de _DistinctionDecider_ se tendría que modificar y aumentar la cantidad de ifs dentro del mismo,
 teniendo un código demasiado grande sin necesidad de serlo. Este problema es 
-producto de la baja escabilidad que posee nuestro clase DistinctionDecider.
+producto de la baja escalabilidad que posee nuestra clase _DistinctionDecider_.
 
-Declarando la clase Estudiante.java como abstracta obtenemos:
+Redefinimos la clase _Estudiante_ y creamos las subclases _ArteEstudiante_ y _CienciaEstudiante_:
 
+Estudiante.java
 ~~~
 abstract class Estudiante {
     String name;
