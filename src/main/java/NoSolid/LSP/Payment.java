@@ -1,4 +1,4 @@
-package NoSolid.LSP;
+//package NoSolid.LSP;
 
 interface Payment {
     void previousPaymentInfo();

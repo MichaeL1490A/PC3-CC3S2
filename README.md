@@ -255,3 +255,52 @@ las distinciones, ahora podemos declarar una evaluación para cada área distint
 sin necesidad de tener que declarar tantos ifs en una misma clase, simplemente
 implementaremos la interfaz DistinctionDecider para realizar una nueva evaluación
 para esta nueva área.
+
+### Pregunta 12
+
+![img.png](images/img5.png)
+
+Observamos que en la clase Cliente se crea un nuevo objeto helper de la clase
+PaymentHelper. Posteriormente, se generan dos objetos de la clase RegisteredPayment
+para recuperar los datos de los pagos de los usuarios Abejita y Chalito. Primero
+se añaden ambos usuarios a los helper para poder recuperar la información. Luego,
+llamamos a la función showPreviousPayments del helper para mostrar los últimos pagos
+que han tenido los dos usuarios. Por último, llamamos a la función processNewPayments
+para imprimir los datos de la actual solicitud de pagos de ambos usuarios.
+Terminando así la ejecución del programa.
+
+### Pregunta 13
+
+GuestUserPayment.java
+
+~~~
+public class GuestUserPayment implements Payment{
+    String name;
+    public GuestUserPayment() {
+        this.name = "guest";
+    }
+    @Override
+    public void previousPaymentInfo(){
+        throw new UnsupportedOperationException();
+    }
+    @Override
+    public void newPayment(){
+        System.out.println("Procesando de "+name+ "pago actual request.");
+    }
+}
+~~~
+
+### Pregunta 14
+
+![img.png](images/img6.png)
+
+Se lanza una excepción del tipo UnsupportedOperationException generado al querer
+llamar al método showPreviousPayments del helper en la clase Cliente, ya que al
+hacerlo el helper tiene que llamar a la función previousPaymentInfo que posee el
+GuestUser, pero este al ser un usuario invitado no posee ningún pago previo por lo
+que se genera la excepción. Vemos que el problema es que esta clase GuestUser no
+puede implementar correctamente la función previousPaymentInfo de su interfaz padre
+por lo que habrá que transformar esta interfaz si queremos que se pueda hacer uso
+de esta clase GuestUser sin generar ninguna excepción.
+
+### Pregunta 15

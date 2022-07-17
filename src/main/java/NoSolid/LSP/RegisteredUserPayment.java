@@ -1,4 +1,4 @@
-package NoSolid.LSP;
+//package NoSolid.LSP;
 
 public class RegisteredUserPayment implements Payment{
     String name;
