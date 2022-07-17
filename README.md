@@ -1,6 +1,6 @@
 # PC3 DESARROLO DE SOFTWARE
 
-## Principio de responsabilidad única
+## Principio de responsabilidad única (SRP)
 ### Pregunta 1
 ![img.png](images/img.png)
 
@@ -146,14 +146,16 @@ como parámetro los años de experiencia del empleado (_experienceInYears_) e
 imprimimos la variable _rank_ devuelta por el método.
 
 
+## Principio abierto/cerrado (OCP)
+
 ### Pregunta 5
 
 Como hemos revisado en la anterior sección, no es correcto proceder de esta forma, ya que
-estaríamos violando el principio de responsabilidad única al asignarle 2 tareas totalmente
-distintas a la misma clase. displayResult corresponde a otorgar la información básica del
-estudiante mientras que evaluateDistinction se dedica a evaluar si es elegible para un
+estaríamos violando el principio de responsabilidad única (SRP) al asignarle 2 tareas totalmente
+distintas a la misma clase. _displayResult_ corresponde a otorgar la información básica del
+estudiante mientras que _evaluateDistinction_ se dedica a evaluar si es elegible para un
 certificado con base en su desempeño, por lo que estos métodos son totalmente
-distintos y deberían declararse en 2 clases distintas.
+distintos (tienen baja cohesión) y por lo tanto deberían declararse en 2 clases distintas.
 
 ### Pregunta 6
 
