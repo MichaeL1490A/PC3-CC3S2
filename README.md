@@ -90,7 +90,6 @@ SeniorityChecker.java
 
 ~~~
 public class SeniorityChecker {
-    public double experienceInYears;
     public String checkSeniority(double experienceInYears){
         return experienceInYears > 5 ?"senior":"junior";
     }
@@ -100,10 +99,11 @@ public class SeniorityChecker {
 GeneradorIDEmpleado.java
 
 ~~~
-public class SeniorityChecker {
-    public double experienceInYears;
-    public String checkSeniority(double experienceInYears){
-        return experienceInYears > 5 ?"senior":"junior";
+public class GeneradorIDEmpleado {
+    public String generateEmpId(String empFirstName) {
+        int random = new Random().nextInt(1000);
+        String empId = empFirstName.substring(0,1)+random;
+        return empId;
     }
 }
 ~~~
@@ -112,17 +112,11 @@ public class SeniorityChecker {
 
 ![img.png](images/img2.png)
 
-En el método main de Cliente crea los objetos jessica y chalo los cuales contienen información de
-los empleados, luego para cada objeto llama el método privado de Cliente showEmpDetails en el que imprime
-los datos de cada empleado con el método del objeto Empleado displayEmpDetail.
+En el método main de Cliente crea los objetos jessica y chalo los cuales contienen información de los empleados, luego para cada objeto llama el método privado de Cliente showEmpDetails en el que imprime los datos de cada empleado con el método del objeto Empleado displayEmpDetail.
 
-Después creamos una variable que almacenara el ID del empleado y la inicializaremos con el método
-generateEmpId de la clase GeneradorIDEmpleado para esto le damos como parámetro el valor firstName
-del objeto Empleado e imprimimos la variable empId
+Después creamos una variable que almacenara el ID del empleado y la inicializaremos con el método generateEmpId de la clase GeneradorIDEmpleado para esto le damos como parámetro el valor firstName del objeto Empleado e imprimimos la variable empId
 
-Para finalizar creamos una variable rank que almacenara el nivel de estudio del Empleado y los inicializaremos
-con el método checkSeniority de la clase GeneradorIDEmpleado para esto le pasamos como parámetro la experiencia
-en años del empleado (experienceInYears) e imprimimos la variable rank.
+Para finalizar creamos una variable rank que almacenara el nivel de estudio del Empleado y los inicializaremos con el método checkSeniority de la clase GeneradorIDEmpleado para esto le pasamos como parámetro la experiencia en años del empleado (experienceInYears) e imprimimos la variable rank.
 
 ### Pregunta 5
 
