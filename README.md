@@ -518,7 +518,7 @@ B            //dispositivo.sendFax(); Error de tiempo de ejecucion
 }
 ~~~
 
-En las lineas A y B hay error de tiempo de ejecucion
+En las líneas A y B hay error de tiempo de ejecución
 
 ### Pregunta 25
 ~~~
@@ -540,3 +540,68 @@ para cada objeto de la lista.
 Al final hacemos lo mismo que antes pero ahora con una expresión lambda
 
 ### Pregunta 27
+
+Sean los siguientes archivos:
+
+Impresora.java
+~~~
+interface Impresora {
+    void printDocument();
+}
+~~~
+
+DispositivoFax.java
+~~~
+interface DispositivoFax {
+   void sendFax();
+}
+~~~
+
+ImpresoraAvanzada.java
+~~~
+public class ImpresoraAvanzada implements Impresora, DispositivoFax{
+    @Override
+    public void printDocument(){
+        System.out.println("La impresora avanzada imprime un documento.");
+    }
+    @Override
+    public void sendFax() {
+        System.out.println("La impresora avanzada envía un fax.");
+    }
+}
+~~~
+
+ImpresoraBasica
+~~~
+public class ImpresoraBasica implements Impresora{
+    @Override
+    public void printDocument() {
+        System.out.println("La impresora avanzada imprime un documento.");
+    }
+}
+~~~
+
+Cliente.java
+~~~
+public class Cliente {
+    public static void main(String[] args) {
+        System.out.println("Demostracion ISP");
+
+        Impresora impresora = new ImpresoraBasica();
+        impresora.printDocument();
+        impresora = new ImpresoraAvanzada();
+        impresora.printDocument();
+
+        DispositivoFax fax = new ImpresoraAvanzada();
+        fax.sendFax();
+    }
+}
+~~~
+
+Y el resultado de la ejecución es el siguiente:
+
+![img.png](images/img8.png)
+
+Primero creamos un objeto de tipo ImpresoraBasica y utilizamos el método que implemento de la interfaz Impresora
+Luego creamos otro objeto, pero esta vez de tipo ImpresoraAvanzada y llamamos el mismo método anterior luego utilizamos
+la interfaz DispotivoFax para crear una objeto de tipo ImpresoraAvanzada y llamamos a su método sendFax().

@@ -1,7 +1,9 @@
-package Solid.ISP;
+//package Solid.ISP;
 
-/*
+
 public class ImpresoraBasica implements Impresora{
-    ...completa
+    @Override
+    public void printDocument() {
+        System.out.println("La impresora avanzada imprime un documento.");
+    }
 }
-*/

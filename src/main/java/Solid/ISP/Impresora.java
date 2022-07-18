@@ -1,6 +1,5 @@
-package Solid.ISP;
-/*
+//package Solid.ISP;
+
 interface Impresora {
-...completa
+    void printDocument();
 }
-*/
