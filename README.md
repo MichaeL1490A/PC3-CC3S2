@@ -619,3 +619,8 @@ en la interfaz nos evitamos implementarlo en las clases violando el principio de
 la belleza del diseño de la interfaz.
 
 ### Pregunta 30
+
+Cuando definimos un método vacío al llamar a un método de la interfaz que no debe utilizar en lugar de lanzar una
+excepción, al llamar al método desde el cliente en lugar de mostrar el error que estamos generando no mostraremos nada,
+por lo que el cliente no sabrá que error está cometiendo. Además de ello, declarar un método vacío que proviene de 
+una interfaz viola el principio de ISP.
