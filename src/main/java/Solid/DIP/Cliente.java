@@ -1,4 +1,4 @@
-package Solid.DIP;
+//package Solid.DIP;
 
 
 public class Cliente {
@@ -6,15 +6,15 @@ public class Cliente {
         System.out.println("Demostracion con DIP");
 
         // Usando Oracle
-        //...completa
+        BaseDatos oracle = new OracleDatabase();
 
         // Usando Mysql
-        //...completa
+        BaseDatos mysql = new MySQLDatabase();
 
         // Cambiando la base de datos objetivo
-        //usuario = new InterfazUsuario(new OracleDatabase());
-        //...completa
-
-
+        InterfazUsuario usuario = new InterfazUsuario(oracle);
+        usuario.saveEmployeeId("E001");
+        usuario = new InterfazUsuario(mysql);
+        usuario.saveEmployeeId("E001");
     }
 }

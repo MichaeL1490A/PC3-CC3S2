@@ -1,6 +1,11 @@
-package Solid.DIP;
-/*
+//package Solid.DIP;
+
 class InterfazUsuario {
-  ...completa
+    private BaseDatos database;
+    public InterfazUsuario(BaseDatos DB){
+        this.database = DB;
+    }
+    public void saveEmployeeId(String empId){
+        database.saveEmpIdInDatabase(empId);
+    }
 }
-*/

@@ -646,3 +646,99 @@ método _saveEmpIdInDatabase_ de la clase _OracleDatabase_ pide como parámetro 
 concatena la cadena que le brindamos (id del empleado ) para mostrarnos la salida
 'El id: E001 es guardado en la base de datos Oracle.'
 
+### Pregunta 32
+
+El problema es que no puedes realizar cambios en OracleDatabase sin afectar la clase InterfazUsuario por lo que debería
+haber una interfaz en medio de estos 2 es decir ambos deben depender de la abstracción.
+
+### Pregunta 33
+
+Realizamos InterfazUsuario utilizando la interfaz BaseDatos
+
+~~~
+class InterfazUsuario {
+    private BaseDatos database;
+    public InterfazUsuario(BaseDatos DB){
+        this.database = DB;
+    }
+    public void saveEmployeeId(String empId){
+        database.saveEmpIdInDatabase(empId);
+    }
+}
+~~~
+
+### Pregunta 34
+
+Sean los archivos los siguientes:
+
+BaseDatos.java
+~~~
+interface BaseDatos {
+    void saveEmpIdInDatabase(String empId);
+}
+
+~~~
+
+MySQLDatabase.java
+~~~
+class MySQLDatabase implements BaseDatos {
+    @Override
+    public void saveEmpIdInDatabase(String empId){
+        System.out.println("El id: " + empId + " es guardado en la base de datos MySQL.");
+    }
+}
+~~~
+
+OracleDatabase.java
+~~~
+class OracleDatabase implements BaseDatos {
+    @Override
+    public void saveEmpIdInDatabase(String empId){
+        System.out.println("El id: " + empId + " es guardado en la base de datos Oracle.");
+    }
+}
+~~~
+
+InterfazUsuario.java
+~~~
+class InterfazUsuario {
+    private BaseDatos database;
+    public InterfazUsuario(BaseDatos DB){
+        this.database = DB;
+    }
+    public void saveEmployeeId(String empId){
+        database.saveEmpIdInDatabase(empId);
+    }
+}
+~~~
+
+Cliente.java
+~~~
+public class Cliente {
+    public static void main(String[] args) {
+        System.out.println("Demostracion con DIP");
+
+        // Usando Oracle
+        BaseDatos oracle = new OracleDatabase();
+
+        // Usando Mysql
+        BaseDatos mysql = new MySQLDatabase();
+
+        // Cambiando la base de datos objetivo
+        InterfazUsuario usuario = new InterfazUsuario(new OracleDatabase());
+        usuario.saveEmployeeId("E001");
+        usuario = new InterfazUsuario(new MySQLDatabase());
+        usuario.saveEmployeeId("E001");
+    }
+}
+~~~
+
+Sean los resultados los siguientes:
+
+![img.png](images/img10.png)
+
+Primero se crean las variables oracle y mysql que implementan la interfaz BaseDatos e instancian las clases concretas
+OracleDatabase y MySQLDatabase.
+
+Luego se crea el objeto usuario que se instancia utilizando la base de datos oracle y llama a su metodo saveEmployeeId
+y al final hace lo mismo con la base de datos mysql;

@@ -1,7 +1,6 @@
-package Solid.DIP;
+//package Solid.DIP;
 
-/*
+
 interface BaseDatos {
-  ...completa
+    void saveEmpIdInDatabase(String empId);
 }
-*/
