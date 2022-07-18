@@ -237,11 +237,11 @@ public class CienciaEstudiante extends Estudiante{
 
 ### Pregunta 8
 
-Declarando como interface DistinctionDecider.java:
+Declarando como interfaz DistinctionDecider.java:
 
 ~~~
 interface DistinctionDecider{
-    void evaluateDistinction(Estudiante estudiante);
+    public void evaluateDistinction(Estudiante estudiante);
 }
 ~~~
 
@@ -275,16 +275,22 @@ public class ScienceDistinctionDecider implements DistinctionDecider {
 
 ![img.png](images/img4.png)
 
-Se ejecuta el método main en la clase Cliente en donde se crean dos listas, una
-de tipo CienciasEstudiantes que alberga a los estudiantes del área de ciencias,
-y otra de tipo ArtesEstudiantes que alberga a los estudiantes del área de artes.
-Estas 2 listas se inicializan con los métodos privados enrollScienceStudents y
-enrollArtsStudents de la clase Cliente. En la siguiente parte, se itera cada lista
-respectivamente para poder imprimir sus datos de cada uno. Finalmente, en la
-última parte se generan dos objetos, uno de tipo scienceDistinctionDecider para
-los estudiantes de ciencias y el otro de tipo artsDistinctionDecider para los
-estudiantes de arte, estos dos evalúan para cada tipo de estudiante si recibieron
-una distinción por sus notas. Procedemos a iterar las listas para evaluar si se
+Figura4 : Salida al ejecutar el método main de la clase Cliente (src/main/java/Solid/OCP/Cliente.java)
+
+En la Figura 4 tenemos el resultado al ejecutar el método main en la clase Cliente,
+este resultado es similar al resultado sin usar el OCP de la Figura 3.
+Comparando la salida con el código del método vemos que en la primera línea se 
+imprime 'Demostracion OCP', luego se crean dos listas, una
+de tipo _CienciasEstudiantes_ que alberga a los estudiantes del área de ciencias,
+y otra de tipo _ArtesEstudiantes_ que alberga a los estudiantes del área de artes.
+Estas 2 listas se inicializan con los métodos privados _enrollScienceStudents_ y
+_enrollArtsStudents_ de la clase Cliente. En la siguiente parte, se itera cada lista
+con un bucle _for_ para poder imprimir los datos de cada estudiante. Finalmente, en la
+última parte se generan dos objetos, uno de tipo _scienceDistinctionDecider_ para
+los estudiantes de ciencias y el otro de tipo _artsDistinctionDecider_ para los
+estudiantes de arte, estos dos objetos llaman al método _evaluateDistinction_ (que pide como
+parámetro un objeto _Estudiante_) para evaluar a cada estudiante si reciben
+una distinción por sus notas. Procedemos a iterar las listas con un bucle _for_ para evaluar si se
 han recibido afirmativamente o no las distinciones, imprimiendo los que sí
 lograron recibirlas, culminando la ejecución del código.
 
