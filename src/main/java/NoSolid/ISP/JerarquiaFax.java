@@ -1,7 +1,11 @@
-package NoSolid.ISP;
+//package NoSolid.ISP;
 
-/*
-interface  Fax {
-...completa
+interface Fax {
+
 }
-*/
+
+class LanFax implements Fax{
+}
+
+class EFax implements Fax{
+}

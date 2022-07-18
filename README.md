@@ -2,7 +2,7 @@
 
 ## Principio de responsabilidad única (SRP)
 ### Pregunta 1
-![img.png](images/img.png)
+![img.png](images/img1.png)
 
 Figura 1 :  Salida de la ejecución del método main de la clase Cliente
 
@@ -442,3 +442,101 @@ public class PaymentHelper {
     }
 }
 ~~~
+
+
+### Pregunta 19
+
+Mientras desarrollemos una aplicación vamos a tener que modificar la clase base o interfaz para satisfacer los requisitos
+de los nuevos clientes que se vayan presentando.
+
+### Pregunta 20
+
+En este escenario tenemos la interfaz impresora que contiene 2 métodos y sus clases concretas que son ImpresoraAvanzada e
+ImpresoraBasica solo la primera usa ambos métodos entonces al modificar un método dentro de la clase ImpresoraAvanzada
+también tendremos que hacerlo en su interfaz hasta aquí todo bien, pero el problema viene cuando los cambios en la interfaz
+afecte el funcionamiento de la ImpresoraBasica.
+
+### Pregunta 21
+
+Una explicación de lo anterior sería el problema de que una interfaz contenga métodos que algunas clases no utilicen es
+que los cambios de estos métodos, en las clases que sí los hacen, afecta a las clases que no.
+
+### Pregunta 22
+
+No, porque una de sus clases concretas no utiliza el método sendFax() debido a que no está en su naturaleza.
+
+### Pregunta 23
+
+¿Qué código puedes escribir?,
+
+~~~
+interface Impresora {
+    void printDocument();
+    void sendFax();
+}
+~~~
+
+~~~
+public class ImpresoraAvanzada implements Impresora{
+    @Override
+    public void printDocument() {
+        System.out.println("La impresora avanzada imprime un documento.");
+    }
+
+    @Override
+    public void sendFax() {
+        System.out.println("La impresora avanzada envía un fax.");
+    }
+}
+~~~
+
+### Pregunta 24
+
+~~~
+ import java.util.ArrayList;
+ import java.util.List;
+
+class Cliente {
+    public static void main(String[] args) {
+        System.out.println("Demostracion sin ISP");
+        Impresora impresora = new ImpresoraAvanzada();
+        impresora.printDocument();
+        impresora.sendFax();
+
+        impresora = new ImpresoraBasica();
+        impresora.printDocument();
+A        //impresora.sendFax(); Error de tiempo de ejecucion
+
+        List<Impresora> impresoras = new ArrayList<Impresora>();
+        impresoras.add(new ImpresoraAvanzada());
+        impresoras.add(new ImpresoraBasica());
+        for(Impresora dispositivo:impresoras){
+            dispositivo.printDocument();
+B            //dispositivo.sendFax(); Error de tiempo de ejecucion
+        }
+    }
+}
+~~~
+
+En las lineas A y B hay error de tiempo de ejecucion
+
+### Pregunta 25
+~~~
+impresoras.forEach( (dispositivo) -> {dispositivo.printDocument();} );
+~~~
+
+### Pregunta 26
+
+![img.png](images/img7.png)
+
+En la línea 9, crea un objeto de tipo ImpresoraAvanzada y llama a sus métodos printDocument() y sendFax().
+Luego, en la línea 13 ahora la variable impresora representa un objeto de tipo ImpresoraBasica y llamamos al método
+printDocument en la línea 14.
+
+Después creamos una lista de interfaces Impresora y añadimos 2 objetos que la implementan ImpresoraAvanzada e 
+ImpresoraBasica y mediante un for iteramos en esta lista de interfaces mientras llamamos al método printDocument
+para cada objeto de la lista.
+
+Al final hacemos lo mismo que antes pero ahora con una expresión lambda
+
+### Pregunta 27

@@ -1,4 +1,4 @@
-package NoSolid.ISP;
+//package NoSolid.ISP;
 
 class ImpresoraBasica implements Impresora {
     @Override
@@ -10,4 +10,5 @@ class ImpresoraBasica implements Impresora {
     public void sendFax() {
         throw new UnsupportedOperationException();
     }
+
 }
