@@ -278,7 +278,7 @@ public class ScienceDistinctionDecider implements DistinctionDecider {
 Figura4 : Salida al ejecutar el método main de la clase Cliente (src/main/java/Solid/OCP/Cliente.java)
 
 En la Figura 4 tenemos el resultado al ejecutar el método main en la clase Cliente,
-este resultado es similar al resultado sin usar el OCP de la Figura 3.
+este resultado es similar al resultado de la Figura 3, pero en este caso se usa el OCP.
 Comparando la salida con el código del método vemos que en la primera línea se 
 imprime 'Demostracion OCP', luego se crean dos listas, una
 de tipo _CienciasEstudiantes_ que alberga a los estudiantes del área de ciencias,
@@ -606,6 +606,7 @@ Primero creamos un objeto de tipo ImpresoraBasica y utilizamos el método que im
 Luego creamos otro objeto, pero esta vez de tipo ImpresoraAvanzada y llamamos el mismo método anterior luego utilizamos
 la interfaz DispotivoFax para crear una objeto de tipo ImpresoraAvanzada y llamamos a su método sendFax().
 
+
 ### Pregunta 28
 
 Nada, porque los métodos predeterminados de una interfaz no afectan a las clases que lo implementan. A demás las clases
@@ -624,3 +625,20 @@ Cuando definimos un método vacío al llamar a un método de la interfaz que no 
 excepción, al llamar al método desde el cliente en lugar de mostrar el error que estamos generando no mostraremos nada,
 por lo que el cliente no sabrá que error está cometiendo. Además de ello, declarar un método vacío que proviene de 
 una interfaz viola el principio de ISP.
+
+### Pregunta 31
+
+![img.png](images/img9.png)
+
+Figura 9 : Salida al ejecutar el método main de la clase Cliente (src/main/java/NoSolid/DIP/Cliente.java)
+
+En la Figura 9 tenemos la salida del método main de la clase Cliente. Si comparamos
+esta salida con el código del método vemos que en la primera línea se imprime
+'A demo without DIP.', luego se crea el objeto _usuario_ de la clase _InterfazUsuario_,
+este objeto lo usamos para llamar al método _saveEmployeeId_ el cual toma coma
+parámetro una cadena. En la clase _InterfazUsuario_ el método _saveEmployeeId_ usa un objeto
+de la clase _OracleDatabase_ para llamar al método _saveEmpIdInDatabase_, el
+método _saveEmpIdInDatabase_ de la clase _OracleDatabase_ pide como parámetro una cadena
+(enviamos la cadena que se envió desde la clase Cliente) y este método finalmente
+concatena la cadena que le brindamos (id del empleado ) para mostrarnos la salida
+'El id: E001 es guardado en la base de datos Oracle.'
