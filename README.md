@@ -605,3 +605,17 @@ Y el resultado de la ejecución es el siguiente:
 Primero creamos un objeto de tipo ImpresoraBasica y utilizamos el método que implemento de la interfaz Impresora
 Luego creamos otro objeto, pero esta vez de tipo ImpresoraAvanzada y llamamos el mismo método anterior luego utilizamos
 la interfaz DispotivoFax para crear una objeto de tipo ImpresoraAvanzada y llamamos a su método sendFax().
+
+### Pregunta 28
+
+Nada, porque los métodos predeterminados de una interfaz no afectan a las clases que lo implementan. A demás las clases
+que implementan esta interfaz no están obligadas a utilizar los métodos predeterminados.
+
+### Pregunta 29
+
+Cuando agregamos un nuevo método en la interfaz DispositivoFax la clase concreta ImpresoraAvanzada nos obliga a implementar
+este método haciendo que se cumpla el principio de segregación de interfaces, pero al utilizar métodos predeterminados
+en la interfaz nos evitamos implementarlo en las clases violando el principio de segregación de interfaces y estropeando
+la belleza del diseño de la interfaz.
+
+### Pregunta 30

@@ -11,7 +11,6 @@ public class Cliente {
         impresora.printDocument();
 
         DispositivoFax fax = new ImpresoraAvanzada();
-        fax.sendFax();
-
+        fax.sendFax();;
     }
 }
