@@ -750,3 +750,4 @@ Cuando los cambios para cumplir este principio sean complejos y existan alternat
 
 ### Pregunta 36
 
+Un set Database ayudaría a cambiar la base de datos tal que un usuario pueda utilizar bases de datos distintas.
