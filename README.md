@@ -358,6 +358,7 @@ de esta clase GuestUser sin generar ninguna excepción.
 
 ### Pregunta 15
 
+Pregunta fuera de contexto
 
 ### Pregunta 16
 
@@ -742,3 +743,10 @@ OracleDatabase y MySQLDatabase.
 
 Luego se crea el objeto usuario que se instancia utilizando la base de datos oracle y llama a su metodo saveEmployeeId
 y al final hace lo mismo con la base de datos mysql;
+
+### Pregunta 35
+
+Cuando los cambios para cumplir este principio sean complejos y existan alternativas más flexibles.
+
+### Pregunta 36
+
