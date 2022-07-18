@@ -642,3 +642,6 @@ método _saveEmpIdInDatabase_ de la clase _OracleDatabase_ pide como parámetro 
 (enviamos la cadena que se envió desde la clase Cliente) y este método finalmente
 concatena la cadena que le brindamos (id del empleado ) para mostrarnos la salida
 'El id: E001 es guardado en la base de datos Oracle.'
+
+### Pregunta 31
+
