@@ -6,36 +6,36 @@
 
 Figura 1 :  Salida de la ejecución del método main de la clase Cliente
 
-La Figura 1 muestra la ejecución del método main de la clase Cliente 
-(src/main/java/NoSolid/SRP/Cliente.java). En donde primero se imprime 
+La Figura 1 muestra la ejecución del método main de la clase Cliente
+(src/main/java/NoSolid/SRP/Cliente.java). En donde primero se imprime
 "Demostración sin SRP" y luego se muestra el nombre, los años de experiencia,
-el ID y la categoría de dos empleados Jessica y Chalito. 
+el ID y la categoría de dos empleados Jessica y Chalito.
 
 Si comparamos estos resultados con el código del método main de la clase Cliente
 notamos que primero se tiene una instrucción de impresión para "Demostración sin SRP",
 luego se crea un objeto Empleado (Jessica) enviando sus atributos en el constructor de la clase
-Empleado y posteriormente se llama al método privado de Cliente (_showEmpDetail_) 
+Empleado y posteriormente se llama al método privado de Cliente (_showEmpDetail_)
 que recibe como parámetro un objeto Empleado (Jessica).
-Este método imprime los detalles (nombre, años de experiencia, ID, categoría) del objeto 
+Este método imprime los detalles (nombre, años de experiencia, ID, categoría) del objeto
 empleado brindado (Jessica) usando los métodos de la clase Empleado _displayEmpDetail_, _generateEmpId_
 y _checkSeniority_.
 
 Lo mismo se repite para el siguiente empleado Chalito.
 
 ### Pregunta 2
-El problema de diseño se centra en la clase _Empleado_, ya que 
-si vemos el código de esta clase notamos que tiene más de una 
-responsabilidad, además de otorgar la información básica del empleado 
+El problema de diseño se centra en la clase _Empleado_, ya que
+si vemos el código de esta clase notamos que tiene más de una
+responsabilidad, además de otorgar la información básica del empleado
 (_displayEmpDetail_), también se encarga de generar los IDs (_generateEmpId_)
-de manera aleatoria de cada empleado y de categorizar a los empleados 
-(_checkSeniority_) con base en los años de experiencia  del empleado. 
+de manera aleatoria de cada empleado y de categorizar a los empleados
+(_checkSeniority_) con base en los años de experiencia  del empleado.
 
-Esto hace que tenga más de una responsabilidad como clase y la razón 
+Esto hace que tenga más de una responsabilidad como clase y la razón
 es que se ha juntado todos los métodos en una sola clase, lo que
-aparenta dar más cohesión al código, pero no toma en cuenta que 
+aparenta dar más cohesión al código, pero no toma en cuenta que
 el código puede tener cambios, como el de redefinir la manera en que
 se obtiene los ID's de los empleados en _generateEmpId_ ya que la manera
-como está definido se pueden dar casos que se tengan empleados con el 
+como está definido se pueden dar casos que se tengan empleados con el
 mismo ID, algo que no debería ocurrir.
 
 ### Pregunta 3
@@ -116,8 +116,8 @@ Figura 2: Salida de la ejecución del método main de la clase Cliente siguiendo
 
 En la Figura 2 tenemos una salida similar a la que se obtuvo anteriormente
 en la Figura 1 al ejecutar el método main de la clase Cliente (src/main/java/Solid/SRP/Cliente.java)
-, pero en este caso se sigue el SRP y es por eso que en la primera línea 
-vemos ahora la salida "Demostracion de SRP". El código resultante usando 
+, pero en este caso se sigue el SRP y es por eso que en la primera línea
+vemos ahora la salida "Demostracion de SRP". El código resultante usando
 el SRP se muestra en la pregunta 3. De los cambios realizados tenemos que:
 
 En la clase _Empleado_ nos quedamos con los atributos: nombre, apellido y años de
@@ -136,13 +136,13 @@ _Empleado_, usando el constructor para definir los atributos de los empleados,
 luego se llama 2 veces al método privado de Cliente _showEmpDetails_ que tiene como
 parámetro a un objeto empleado. En este método se imprime los datos (atributos)
 de cada empleado, para ello llama al método _displayEmpDetail_ de la clase _Empleado_
-para mostrar el nombre completo y los años de experiencia del empleado, 
+para mostrar el nombre completo y los años de experiencia del empleado,
 después creamos la variable _empId_ que almacenará el ID del empleado y la inicializaremos con el método
 _generateEmpId_ de la clase _GeneradorIDEmpleado_ para esto le damos como parámetro el atributo _firstName_
-del objeto Empleado e imprimimos la variable _empId_. Finalmente creamos una variable 
+del objeto Empleado e imprimimos la variable _empId_. Finalmente creamos una variable
 _rank_ que almacena la categoría del empleado y lo inicializaremos
-con el método _checkSeniority_ de la clase _GeneradorIDEmpleado_ para esto le pasamos 
-como parámetro los años de experiencia del empleado (_experienceInYears_) e 
+con el método _checkSeniority_ de la clase _GeneradorIDEmpleado_ para esto le pasamos
+como parámetro los años de experiencia del empleado (_experienceInYears_) e
 imprimimos la variable _rank_ devuelta por el método.
 
 
@@ -161,24 +161,24 @@ distintos (tienen baja cohesión) y por lo tanto deberían declararse en 2 clase
 
 ![img.png](images/img3.png)
 
-Figura 3 : Salida del método main de la clase Cliente (src/main/java/NoSolid/OCP/Cliente.java) 
+Figura 3 : Salida del método main de la clase Cliente (src/main/java/NoSolid/OCP/Cliente.java)
 
 En la Figura 3 tenemos la salida al ejecutar el método main de la clase Cliente.
 Si comparamos el código de este método con la salida al ejecutarlo vemos que en la
-primera línea se tiene una instrucción para imprimir 'Demostración sin OCP', luego 
+primera línea se tiene una instrucción para imprimir 'Demostración sin OCP', luego
 se declara una lista de objetos de tipo _Estudiante_ y se inicializa con el método
-privado _enrollStudents_ de la clase _Cliente_ (este método retorna una lista de objetos de la 
-clase _Estudiante_). Luego se tiene una instrucción para imprimir 'Resultados' y 
+privado _enrollStudents_ de la clase _Cliente_ (este método retorna una lista de objetos de la
+clase _Estudiante_). Luego se tiene una instrucción para imprimir 'Resultados' y
 posteriormente se crea un bucle _for_ que itera entre los elementos de la lista de
-estudiantes (_enrolledStudents_), dentro de este bucle _for_ se llama al método _toString_ 
-de la clase _Estudiante_ de manera implícita (un objeto _Estudiante_ dentro de una instrucción 
+estudiantes (_enrolledStudents_), dentro de este bucle _for_ se llama al método _toString_
+de la clase _Estudiante_ de manera implícita (un objeto _Estudiante_ dentro de una instrucción
 de impresión), este método imprime los atributos de los estudiantes de manera formateada.
 En las últimas líneas del método main se tiene una instrucción de impresión para
-'Distinciones:' y se crea el objeto _distinctionDecider_ de la clase _DistinctionDecider_, 
+'Distinciones:' y se crea el objeto _distinctionDecider_ de la clase _DistinctionDecider_,
 posteriormente se crea otro bucle _for_ que itera sobre la lista de estudiantes (_enrolledStudents_)
-en este caso dentro del bucle _for_ se usa el objeto _distinctionDecider_ para llamar al método 
-_evaluateDistinction_, este método pide como parámetro un objeto _Estudiante_, que evalua 
-con la ayuda de los atributos del estudiante si el estudiante recibe una distinción, y solo se imprimen 
+en este caso dentro del bucle _for_ se usa el objeto _distinctionDecider_ para llamar al método
+_evaluateDistinction_, este método pide como parámetro un objeto _Estudiante_, que evalua
+con la ayuda de los atributos del estudiante si el estudiante recibe una distinción, y solo se imprimen
 los que recibieron el certificado.
 
 ### Pregunta 7
@@ -186,7 +186,7 @@ los que recibieron el certificado.
 El diseño del código actual es problemático para la extensión de la clase _Estudiante_,
 porque si queremos crear un nuevo departamento como ingeniería, el método _evaluateDistinction_
 de _DistinctionDecider_ se tendría que modificar y aumentar la cantidad de ifs dentro del mismo,
-teniendo un código demasiado grande sin necesidad de serlo. Este problema es 
+teniendo un código demasiado grande sin necesidad de serlo. Este problema es
 producto de la baja escalabilidad que posee nuestra clase _DistinctionDecider_.
 
 Redefinimos la clase _Estudiante_ y creamos las subclases _ArteEstudiante_ y _CienciaEstudiante_:
@@ -278,8 +278,8 @@ public class ScienceDistinctionDecider implements DistinctionDecider {
 Figura4 : Salida al ejecutar el método main de la clase Cliente (src/main/java/Solid/OCP/Cliente.java)
 
 En la Figura 4 tenemos el resultado al ejecutar el método main en la clase Cliente,
-este resultado es similar al resultado de la Figura 3, pero en este caso se usa el OCP.
-Comparando la salida con el código del método vemos que en la primera línea se 
+este resultado es similar al resultado sin usar el OCP de la Figura 3.
+Comparando la salida con el código del método vemos que en la primera línea se
 imprime 'Demostracion OCP', luego se crean dos listas, una
 de tipo _CienciasEstudiantes_ que alberga a los estudiantes del área de ciencias,
 y otra de tipo _ArtesEstudiantes_ que alberga a los estudiantes del área de artes.
@@ -306,6 +306,8 @@ las distinciones, ahora podemos declarar una evaluación para cada área distint
 sin necesidad de tener que declarar tantos ifs en una misma clase, simplemente
 implementaremos la interfaz DistinctionDecider para realizar una nueva evaluación
 para esta nueva área.
+
+## Principio de sustitución de Liskov (LSP)
 
 ### Pregunta 12
 
@@ -443,6 +445,7 @@ public class PaymentHelper {
 }
 ~~~
 
+## Principio de segregación de interfaz (ISP)
 
 ### Pregunta 19
 
@@ -533,7 +536,7 @@ En la línea 9, crea un objeto de tipo ImpresoraAvanzada y llama a sus métodos 
 Luego, en la línea 13 ahora la variable impresora representa un objeto de tipo ImpresoraBasica y llamamos al método
 printDocument en la línea 14.
 
-Después creamos una lista de interfaces Impresora y añadimos 2 objetos que la implementan ImpresoraAvanzada e 
+Después creamos una lista de interfaces Impresora y añadimos 2 objetos que la implementan ImpresoraAvanzada e
 ImpresoraBasica y mediante un for iteramos en esta lista de interfaces mientras llamamos al método printDocument
 para cada objeto de la lista.
 
@@ -606,7 +609,6 @@ Primero creamos un objeto de tipo ImpresoraBasica y utilizamos el método que im
 Luego creamos otro objeto, pero esta vez de tipo ImpresoraAvanzada y llamamos el mismo método anterior luego utilizamos
 la interfaz DispotivoFax para crear una objeto de tipo ImpresoraAvanzada y llamamos a su método sendFax().
 
-
 ### Pregunta 28
 
 Nada, porque los métodos predeterminados de una interfaz no afectan a las clases que lo implementan. A demás las clases
@@ -620,11 +622,12 @@ en la interfaz nos evitamos implementarlo en las clases violando el principio de
 la belleza del diseño de la interfaz.
 
 ### Pregunta 30
+Cuando llamamos a un método de la interfaz que no se utiliza y lo definimos como un método vacío en lugar de lanzar
+una excepción entonces en vez de mostrar un error no mostrara nada haciendo que sea más difícil encontrar que error está
+ocurriendo. Además de ello, declarar un método vacío que proviene de una interfaz viola el principio de ISP.
 
-Cuando definimos un método vacío al llamar a un método de la interfaz que no debe utilizar en lugar de lanzar una
-excepción, al llamar al método desde el cliente en lugar de mostrar el error que estamos generando no mostraremos nada,
-por lo que el cliente no sabrá que error está cometiendo. Además de ello, declarar un método vacío que proviene de 
-una interfaz viola el principio de ISP.
+## Principio de inversión de dependencia (DIP)
+
 
 ### Pregunta 31
 
@@ -642,3 +645,4 @@ método _saveEmpIdInDatabase_ de la clase _OracleDatabase_ pide como parámetro 
 (enviamos la cadena que se envió desde la clase Cliente) y este método finalmente
 concatena la cadena que le brindamos (id del empleado ) para mostrarnos la salida
 'El id: E001 es guardado en la base de datos Oracle.'
+
